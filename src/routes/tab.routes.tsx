@@ -22,21 +22,21 @@ export default function TabRoutes() {
             return (
               <Image
                 source={require("../../assets/data-transfer.png")}
-                style={{ width: 30, height: 30 }}
+                style={{ width: 35, height: 35 }}
               ></Image>
             );
           else if (route.name == "coin")
             return (
               <Image
                 source={require("../../assets/dollar.png")}
-                style={{ width: 30, height: 30 }}
+                style={{ width: 35, height: 35 }}
               ></Image>
             );
           else if (route.name == "store")
             return (
               <Image
                 source={require("../../assets/shopping-bag.png")}
-                style={{ width: 30, height: 30 }}
+                style={{ width: 35, height: 35 }}
               ></Image>
             );
         },
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+
     justifyContent: "flex-end",
   },
   containerAndroid: {
@@ -72,6 +73,5 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     width: "100%",
-    height: 60,
   },
 });

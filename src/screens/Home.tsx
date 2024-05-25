@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, Image, ScrollView, Pressable } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import CircleComponent from "../component/main/CircleComponent";
-import PersonComponent from "../component/main/PersonComponent";
 import InfoCard from "../component/geral/InfoCard";
 import CarrosselItemInfo from "../component/geral/CarrosselItemInfo";
 import Header from "../component/geral/header";
@@ -77,7 +74,11 @@ const Home = () => {
             paddingVertical: 10,
           }}
         >
-          <InfoCard />
+          <InfoCard
+            iconName={"card"}
+            title="Meus cartões"
+            optionalInfo="R$ 874,43"
+          />
         </View>
         <ScrollView
           horizontal={true}

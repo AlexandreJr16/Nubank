@@ -5,15 +5,14 @@ const CarrosselItemInfo = ({ children }: { children: any }) => {
   return (
     <View
       style={{
-        maxWidth: "55%",
-        maxHeight: 200,
+        height: 250,
+        width: 250,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "row",
+        flexDirection: "column",
         backgroundColor: "#E6E7EB",
-        paddingVertical: 8,
-        paddingHorizontal: 10,
+        padding: 10,
         marginVertical: 5,
         borderRadius: 16,
         marginRight: 10,

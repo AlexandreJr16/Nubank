@@ -2,7 +2,11 @@ import React from "react";
 import { View, Text } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const InfoCard = () => {
+const InfoCard = (dto: {
+  iconName: any;
+  title: string;
+  optionalInfo?: string;
+}) => {
   return (
     <View
       style={{
@@ -12,10 +16,10 @@ const InfoCard = () => {
         justifyContent: "space-between",
         flexDirection: "row",
         backgroundColor: "#E6E7EB",
-        paddingVertical: 8,
-        paddingHorizontal: 10,
+        paddingVertical: 15,
+        paddingHorizontal: 15,
         marginVertical: 5,
-        borderRadius: 16,
+        borderRadius: 8,
       }}
     >
       <View
@@ -27,12 +31,16 @@ const InfoCard = () => {
           gap: 20,
         }}
       >
-        <Ionicons name="card-sharp" size={30} />
-        <Text style={{ fontSize: 18, fontWeight: "900" }}>Meus Cartões</Text>
+        <Ionicons name={dto.iconName} size={30} />
+        <Text style={{ fontSize: 18, fontWeight: "900" }}>{dto.title}</Text>
       </View>
-      <View>
-        <Text style={{ fontSize: 16, fontWeight: "900" }}>R$ 753,43</Text>
-      </View>
+      {dto.optionalInfo && (
+        <View>
+          <Text style={{ fontSize: 16, fontWeight: "900" }}>
+            {dto.optionalInfo}
+          </Text>
+        </View>
+      )}
     </View>
   );
 };

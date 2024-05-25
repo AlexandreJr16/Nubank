@@ -6,117 +6,111 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import CircleComponent from "../component/main/CircleComponent";
 import PersonComponent from "../component/main/PersonComponent";
+import InfoCard from "../component/geral/InfoCard";
+import CarrosselItemInfo from "../component/geral/CarrosselItemInfo";
+import Header from "../component/geral/header";
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
+
+  const handleVisible = () => {
+    setVisible(!visible);
+  };
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View
-        style={{
-          display: "flex",
-          paddingHorizontal: 20,
-          paddingVertical: 30,
-          backgroundColor: "#820ad1",
-
-          gap: 30,
-        }}
-      >
-        <StatusBar backgroundColor={"#820ad1"} style={"dark"} />
-        <View
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexDirection: "row",
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: "#DFAEFF",
-              padding: 15,
-              borderRadius: 1000,
-            }}
-          >
-            <Ionicons name="person" size={30} color="white" />
-          </View>
+      <Header
+        handleVisible={handleVisible}
+        visible={visible}
+        textVisible={true}
+      />
+      <ScrollView>
+        <View style={{ flex: 1 }}>
           <View
             style={{
               display: "flex",
-              alignItems: "center",
-              justifyContent: "space-around",
-              flexDirection: "row",
+              width: "100%",
+              alignItems: "flex-start",
+              justifyContent: "space-between",
+              flexDirection: "column",
+              paddingHorizontal: 20,
+              paddingVertical: 20,
               gap: 20,
             }}
           >
-            <Pressable
-              onPress={() => {
-                setVisible(!visible);
+            <View
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexDirection: "row",
               }}
             >
-              {visible ? (
-                <Ionicons name="eye" size={30} color="white" />
-              ) : (
-                <Ionicons name="eye-off" size={30} color="white" />
-              )}
-            </Pressable>
-            <Ionicons name="information" size={30} color="white" />
-            <Ionicons name="mail" size={30} color="white" />
+              <Text style={{ fontSize: 25, fontWeight: "500" }}>Conta</Text>
+              <Text style={{ fontSize: 25, fontWeight: "500" }}>{">"}</Text>
+            </View>
+            <Text style={{ fontSize: 22, fontWeight: "500" }}>
+              {visible ? "R$ 1.534,98" : "*****"}
+            </Text>
           </View>
+          <ScrollView
+            horizontal={true}
+            style={{
+              gap: 20,
+              maxHeight: 160,
+            }}
+            showsHorizontalScrollIndicator={false}
+          >
+            <CircleComponent title="Pix" name="cash" />
+            <CircleComponent title="Pagar" name="barcode" />
+            <CircleComponent title="Pegar emprestimo" name="cash-sharp" />
+            <CircleComponent title="Solicitar cartão" name="card-sharp" />
+          </ScrollView>
         </View>
-        <Text style={{ color: "#fff", fontSize: 22 }}>Olá, Camila Portela</Text>
-      </View>
-      <View style={{ flex: 1 }}>
         <View
           style={{
-            display: "flex",
             width: "100%",
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-            flexDirection: "column",
-            paddingHorizontal: 20,
-            paddingVertical: 30,
-            gap: 20,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingHorizontal: 15,
+            paddingVertical: 10,
           }}
         >
-          <View
-            style={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexDirection: "row",
-            }}
-          >
-            <Text style={{ fontSize: 25, fontWeight: "500" }}>Conta</Text>
-            <Text style={{ fontSize: 25, fontWeight: "500" }}>{">"}</Text>
-          </View>
-          <Text style={{ fontSize: 22, fontWeight: "500" }}>
-            {visible ? "R$ 1.534,98" : "*****"}
-          </Text>
+          <InfoCard />
         </View>
         <ScrollView
           horizontal={true}
-          style={{
-            gap: 20,
-            maxHeight: 170,
-          }}
-          showsHorizontalScrollIndicator={false}
+          style={{ width: "100%", paddingHorizontal: 20 }}
         >
-          <CircleComponent title="Pix" name="cash" />
-          <CircleComponent title="Pagar" name="barcode" />
-          <CircleComponent title="Pegar emprestimo" name="cash-sharp" />
-          <CircleComponent title="Solicitar cartão" name="card-sharp" />
+          <CarrosselItemInfo>
+            <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              O nubank fornece a melhor experiencia para você cliente!!!
+            </Text>
+          </CarrosselItemInfo>
+          <CarrosselItemInfo>
+            <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+              libero cupiditate minus eveniet nostrum doloremque velit eligendi
+              eum repudiandae doloribus quod est aliquid, nam nesciunt.
+            </Text>
+          </CarrosselItemInfo>
+          <CarrosselItemInfo>
+            <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+              expedita veniam qui corrupti deserunt repellendus, adipisci
+              consequatur placeat officiis nesciunt.
+            </Text>
+          </CarrosselItemInfo>
+          <CarrosselItemInfo>
+            <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas,
+              voluptas consequatur inventore quis quibusdam quo incidunt
+              suscipit qui laborum, nihil culpa, ipsa voluptatum.
+            </Text>
+          </CarrosselItemInfo>
         </ScrollView>
-        <View>
-          <Text>Nossos Empresários</Text>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            <PersonComponent
-              urlImg={require("../../assets/luka.jpg")}
-              name="Luka"
-            />
-          </ScrollView>
-        </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
